@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>PageTitle</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!--Convert to an external stylesheet-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-image: url('src/bg.jpg');
+            background-size: cover;;
+            background-repeat: no-repeat;
+        }
+
+        body {
+
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+            color: #212121;
+            border: 4px solid #ff993b;
+            border-radius: 25px;
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    </style>
+
+</head>
+
+<body class="text-center" style="padding-top: 240px;">
+    <div class="form-signin bg-light" >
+        <form id="login" autocomplete="off">
+            <img class="mb-4" src="src/xsim_logo.png" alt="" width="200">
+            <h1 class="h3 mb-3 fw-normal">Please log in</h1>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="uid" placeholder="" required >
+                <label for="floatingInput">User ID</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+
+          
+           <a href="frontend/index.php"> <button class="w-100 btn btn-lg btn-success" type="submit">Log in</button></a>
+            <p class="mt-5 mb-3 text-muted">&copy; AOTAVSEC 2023</p>
+        </form>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!---fontawsom -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+
+    <!-- Modal trigger button -->
+    
+    
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="wrongpassword" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="alert" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId"><i class="fa fa-lock text-danger" aria-hidden="true"></i> <p class="text-dark" style="display: inline-block;">Login Fail</p></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark">
+                    <center><img src="src/cross.png" alt="" srcset="" width="100px"></center>
+                    User ID or Password incorrect
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+        const wrongpassword = new bootstrap.Modal(document.getElementById('wrongpassword'))
+    
+    </script>
+
+</body>
+
+</html>
+
+<script src="login.js"></script>
