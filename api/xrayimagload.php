@@ -1,10 +1,10 @@
 <?php 
-include '../class/user.php';
+include '../class/xrayimage.php';
 
-$user = new User();
+$ximg = new XIMG();
 
   
-        $stmt = $user->read();
+        $stmt = $ximg->preloadImg();
         $row = mysqli_fetch_row($stmt);
         
          if($row!=0){
@@ -19,4 +19,4 @@ $user = new User();
 
             }
         
-?>
+?> 

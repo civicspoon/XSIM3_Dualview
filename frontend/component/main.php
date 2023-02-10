@@ -13,13 +13,13 @@
         
         </div>
         <div class="col card rounded p-2 m-2 shadow">
-        <a href="index.php?page_id=4&cbt=cbt" style="text-decoration: none; color:black" > <h1><i class="fa fa-pencil-square" aria-hidden="true"></i> Practical</h1></a>
+        <a href="index.php?page_id=5" style="text-decoration: none; color:black" > <h1><i class="fa fa-pencil-square" aria-hidden="true"></i> Practical</h1></a>
             <div class="row p-2">
                 <p>เพื่อบันทึกชั่วโมงการฝึกวิเคราะห์ภาพด้วยระบบ Computer base Training (CBT)</p>
             </div>
         </div>
         <div class="col card rounded p-2 m-2 shadow">
-        <a href="index.php?page_id=4&cbt=test" style="text-decoration: none; color:black" ><h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test</h1></a>
+        <a href="index.php?page_id=13" style="text-decoration: none; color:black" ><h1><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test</h1></a>
             <div class="row p-2">
                 <p>เพื่อสอบวัดผลต่างๆ</p>
             </div>

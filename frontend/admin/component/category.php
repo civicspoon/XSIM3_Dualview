@@ -4,7 +4,7 @@
 </div>
 <script>
     $(document).ready(async()=>{
-        const response = await fetch('../api/user_category.php');
+        const response = await fetch('../api/category.php');
   
   response.ok;     // => false
   response.status; // => 404

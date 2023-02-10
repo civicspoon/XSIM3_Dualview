@@ -44,7 +44,7 @@ session_start();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!---fontawsom -->
-  <link rel="stylesheet" href="../css/main.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 <style>
@@ -106,7 +106,7 @@ session_start();
 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
 <div class="modal fade" id="usersetting" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
+        <div class="modal-content"><form action="" autocomplete="off">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId"><i class="fa fa-gear" aria-hidden="true"></i> User Setting</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -114,21 +114,21 @@ session_start();
             <div class="modal-body">
                 Change <div class="mb-2">
                   <label for="" class="form-label">Old Password</label>
-                  <input type="password" class="form-control" name="" id="" placeholder="">
+                  <input autocomplete="off" type="password" class="form-control" name="" id="oldpass" placeholder="">
                 </div>
                  <div class="mb-2">
                   <label for="" class="form-label">New Password</label>
-                  <input type="password" class="form-control" name="" id="" placeholder="">
+                  <input autocomplete="off" type="password" class="form-control" name="" id="newpass" placeholder="">
                 </div>
              <div class="mb-2">
                   <label for="" class="form-label">Repeat New Password</label>
-                  <input type="password" class="form-control" name="" id="" placeholder="">
+                  <input autocomplete="off" type="password" class="form-control" name="" id="rep" placeholder="">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Change password</button>
-            </div>
+            </div></form>
         </div>
     </div>
 </div>
