@@ -96,7 +96,7 @@ function drawclock(){
   lcd_screen.ctx.fillText('Image : '+img_count,CANVAS_WIDTH-300,80)
 }
  
-setInterval(function () {clock_timer()}, 1000)
+let clock_time = setInterval(function () {clock_timer()}, 1000)
 
 function convertHMS(value) {
     const sec = parseInt(value, 10); // convert value to number if it's string
@@ -334,7 +334,7 @@ let r_btn = new SoftBtn('r_btn',1515,62,40,25)
 let kbb = document.getElementById('keyboard')
 kbb.addEventListener('click',(e)=>{
   let  mousePos = getMousePos(kbb, e);
-  alert(mousePos.x + ',' + mousePos.y);
+ // alert(mousePos.x + ',' + mousePos.y);
   let x = mousePos.x
   let y = mousePos.y
 //1796,87,1892,143
@@ -368,20 +368,26 @@ function drawXray(screen,img){
       x_pos = 0
       y_pos = 0
       scale_ratio =0
-  
+        
         i++
         img_count++
         S1.src = imgA[i]
         S2.src = imgB[i]
         if(i>=imgA.length){
           clearInterval(clock)
-          alert("End Session")
+          clearInterval(clock_time)
+        //  alert("End Session")
+
+           let rec_res = recordcbt()
+           console.log(rec_res)
+           
+          }
          
         }
     }
 
 
-}
+
 
 
 function invert(){
@@ -445,3 +451,25 @@ async function load(){
   S2.src = imgB[i]
 }
 
+  function recordcbt(){
+  $.post("../../api/cbt.php",
+  {
+    record : 1 ,
+    uid : 10005413,
+    img : img_count,
+    timerec : timer,
+    score : score
+
+  },
+  async (data)=>{
+  const res = await data
+
+   if(data==1){
+    document.getElementById('modalresbody').innerHTML = "Record completed"
+    resultModal.show()
+    }
+    else{
+      alert("Fail")
+    }
+  })
+}
