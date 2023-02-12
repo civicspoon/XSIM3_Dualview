@@ -183,6 +183,7 @@ window.onload =  async function(){
       if(e.key==' '){
         console.log("Space")
         ansModal.show()
+        document.getElementById('catid').focus()
         pause()
       }
       if(e.key=='PageUp'){

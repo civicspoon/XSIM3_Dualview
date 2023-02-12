@@ -101,6 +101,7 @@
         const load_cate = await fetch("../../api/categorylist.php");
         const text = await load_cate.text();
         document.getElementById('catid').innerHTML=text
+
     })
 
     async function load_type(){
@@ -108,6 +109,7 @@
         const load_cate = await fetch("../../api/type_list_by_category.php?cat_id="+cat_id);
         const text = await load_cate.text();
         document.getElementById('itemlist').innerHTML=text
+        document.getElementById('itemlist').focus()
     }
 
     function ans(){
