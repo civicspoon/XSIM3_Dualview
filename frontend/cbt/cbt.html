@@ -133,6 +133,8 @@
                     img_count++
                     S1.src = imgA[i]
                     S2.src = imgB[i]
+                    pause_status = 0
+                    pause()
                     pause()
         }else{                      // ตอบผิด
             x_pos = 0
@@ -143,7 +145,9 @@
         img_count++
         S1.src = imgA[i]
         S2.src = imgB[i]
-        pause() 
+        pause_status = 0
+                    pause()
+                    pause()
         }
         document.getElementById('itemlist').innerHTML =''
         form.reset()
