@@ -11,42 +11,67 @@
 
 </head>
 <body>
-    
-<h1>The Window Object</h1>
-<h2>The setTimeout() Method</h2>
+<div class="row justify-content-center">
+            <center><div id="keyboard"></div></center>
+        </div>
 
-<p>Wait 5 seconds for the greeting:</p>
-
-<h2 id="demo"></h2>
+</body>
 
 <script>
 
+const SCREEN_HEIGHT = screen.height
+const SCREEN_WIDTH = screen.width
+const CANVAS_HEIGHT = window.innerHeight-200
+const CANVAS_WIDTH = (window.innerWidth /2)-10
 let imgA = []
 let imgB = []
-function preloadimg(data){
-    for(let x in data){
-      imgA[x] = new Image()
-      imgA[x].src = '../frontend/cbt/img/'+data[x].side1
-      imgB[x] = new Image()
-      imgB[x].src = '../frontend/cbt/img/'+data[x].side2
-    console.log(data[x].side1+" / "+data[x].side2)
-    console.log(imgB[x].src)
+let i = 0
+let score = 0
+let img_count = 1
+ let x1 = new Image 
+    x1.src = 'xsim_keyboard.png'
+    let S1 = new Image();
+
+class _canvas{
+    constructor(domId){
+        this.domId = domId
+        this.canvas = document.createElement('canvas')
+        this.ctx =this.canvas.getContext("2d")             
     }
-
-
+    
+    start(w,h){        
+        this.canvas.style.backgroundColor = "white"
+        this.canvas.setAttribute('width',w)
+        this.canvas.setAttribute('height',h)
+        this.domTaget = document.getElementById(this.domId)
+        this.domTaget.appendChild(this.canvas);   
+    }
+    drawimg(img,x,y,w,h){
+        let images = new Image();
+        images.src =  img
+        this.ctx.drawImage(images,x,y)
+        return true
+        
+    }
+    clear_screen(){
+        this.ctx.fillStyle = 'white'
+        this.ctx.fillRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
+        
+        
+    }
 }
+const keyboard = new _canvas("keyboard")
 
-async function load(){
-    console.log("Start")
-    console.log("Loading")
-    const loaddata = await fetch('../api/xrayimagload.php')
-    const text = await loaddata.text();
-    let js = JSON.parse(text)
-  const preload = preloadimg(js)
-  console.log("Finish")
+window.onload =   ()=>{
+  console.log("start")
+
+    const kb =  keyboard.start(window.innerWidth,150) /// Div To canvas
+   // keyboard.ctx.drawImage(x1,0,0,window.innerWidth,150) // Draw Img
+
+    //keyboard.ctx.drawImage(x1, dx, dy);
+    //keyboard.ctx.drawImage(x1, dx, dy, dWidth, dHeight);
+    keyboard.ctx.drawImage(x1, 10, 50, 100, 70, 0,0,100,70);
+    
 }
-load()
 </script>
-
-</body>
 </html>

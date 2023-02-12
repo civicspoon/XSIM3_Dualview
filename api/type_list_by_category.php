@@ -13,7 +13,7 @@ $sql = "SELECT * FROM `type` WHERE category = ".$cat;
 $admin_path = '';
 
 if ($result = $mysqli -> query($sql)) {
-    print "<option selected disable>---Please Choose item's category---</option>";
+    print "<option selected disable value='0'>---Please Choose item's category---</option>";
   while ($row = $result -> fetch_row()) {
     echo "<option value ='".$row['0']."'>".$row[1]."</option>";
      //echo "<tr>".$row[4]. $row[3]."</tr>";

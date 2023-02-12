@@ -57,17 +57,16 @@
             <div class="modal-body text-dark">
                 <center><img src="src/cross.png" alt="" srcset="" width="100px"></center>
                 <label for=""><strong>Item Category</strong></label>
-                <select class="form-select form-select-lg" tabindex="1" id="catid">
+                <select class="form-select form-select-lg" onchange="load_type()" tabindex="1" id="catid">
                     <option selected disabled ="">--- Please Select Answer ---</option>
                 </select>
                 <label class="mt-2" for=""><strong>Item Type</strong></label>
-                <select class="form-select form-select-lg" size="10" tabindex="0">
-                    <option selected disabled ="">--- Please Select Answer ---</option>
+                <select class="form-select form-select-lg"  size="10" tabindex="0" id="itemlist">
                 </select>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" onclick="ans()" data-bs-dismiss="modal">Answer</button>
             </div>
             </form>
         </div>
@@ -75,8 +74,27 @@
 </div>
 
 
+<div class="modal fade" id="exitcbt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-info-circle" aria-hidden="true"></i> Exit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <center><i class="fa fa-info-circle text-danger" style="font-size: 76px;" aria-hidden="true"></i><br>  Confirm to exit</center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="../index.php"><button type="button" class="btn btn-danger">Confirm</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Optional: Place to the bottom of scripts -->
 <script>
+    const exitcbt = new bootstrap.Modal(document.getElementById('exitcbt'))
     const ansModal = new bootstrap.Modal(document.getElementById('ansModal'))
 
      $(document).ready(async ()=>{
@@ -85,8 +103,50 @@
         document.getElementById('catid').innerHTML=text
     })
 
-    function load_type(){
-        
+    async function load_type(){
+        let cat_id = document.getElementById('catid').value
+        const load_cate = await fetch("../../api/type_list_by_category.php?cat_id="+cat_id);
+        const text = await load_cate.text();
+        document.getElementById('itemlist').innerHTML=text
+    }
+
+    function ans(){
+        let form = document.getElementById('ansform')
+        let chooseans = document.getElementById('itemlist').value
+        console.log(chooseans)
+
+
+        //////////////// ตอบ ////////////////////////////
+        if(chooseans=='0' || chooseans==''){
+            pause()
+        }
+
+        else  if(chooseans==ansarray[i]){   /// ตอบถูก
+                        score++
+                        console.log(imgA[i])
+                console.log(imgB[i])
+                x_pos = 0
+                y_pos = 0
+                scale_ratio =0
+            
+                    i++
+                    img_count++
+                    S1.src = imgA[i]
+                    S2.src = imgB[i]
+                    pause()
+        }else{                      // ตอบผิด
+            x_pos = 0
+      y_pos = 0
+      scale_ratio =0
+  
+        i++
+        img_count++
+        S1.src = imgA[i]
+        S2.src = imgB[i]
+        pause() 
+        }
+        document.getElementById('itemlist').innerHTML =''
+        form.reset()
     }
 </script>
 
