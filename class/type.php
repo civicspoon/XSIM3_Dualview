@@ -7,5 +7,7 @@
             $sql = mysqli_query($this->conn,"SELECT * FROM `type` WHERE category = '$category' ORDER BY id LIMIT ");
             return $sql;
         }
+
+        
     }
 ?>

@@ -11,6 +11,7 @@
                     <p class="lead" style="font: size 30px;">
                         <select name="" id="" class="form-select-lg">
                             <option  value="" selected disabled>-- กรุณาเลือกหลักสูตร -- </option>
+                            <option  value="" > Recurrent  </option>
                         </select>
                         <li>มีเวลา 20 นาทีในการใช้งานวิเคราะห์ภาพ 30 ภาพ</li>
                         <li>ไม่จำกัดเวลาในการวิเคราะห์ภาพต่อภาพ</li>

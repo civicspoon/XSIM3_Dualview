@@ -1,3 +1,7 @@
+<div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+	<div class="col-2"><button class="btn btn-lg btn-info" onclick="history.back()"> <i class="fa fa-backward" aria-hidden="true"></i>  Go Back</button></div>
+</div>
+
 <?php
 $conn= mysqli_connect("localhost","root","","xsim2") 
 or die("Error: " . mysqli_error($conn));
@@ -8,7 +12,7 @@ $query=mysqli_query($conn,"SELECT COUNT(id) FROM `type` WHERE category ='".$_GET
 
 	$rows = $row[0];
 
-	$page_rows = 10;  //จำนวนข้อมูลที่ต้องการให้แสดงใน 1 หน้า  ตย. 5 record / หน้า 
+	$page_rows = 5;  
 
 	$last = ceil($rows/$page_rows);
 
@@ -63,25 +67,20 @@ $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next
 }
 	}
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"" rel="nofollow">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	<body>
+
+	
 		<div" rel="nofollow">
 			<div style="height: 20px;"></div>
 			<div class="row">
 				<div class="col-lg-2">
 				</div>
-				<div class="col-lg-6">
-					<h4>Simple Pagination using PHP/MySQLi</h4>
-					<table width="80%" class="table table-striped table-bordered table-hover">
+				<div class="col-lg-12 card shadow">
+					<h4>Item List</h4>
+					<table width="80%" class="table table-striped table-bordered table-hover ">
 						
 						<thead>
-							<tr class="info">
-							<th>ID</th>
+							<tr class="info text-center">
+							<!-- <th>ID</th> -->
 							<th>ITEM</th>
 							<th>IMG</th>
 							
@@ -92,9 +91,9 @@ $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next
 							<?php
 								while($crow = mysqli_fetch_array($nquery)){
 							?>
-							<tr>
-								<td><?php echo $crow['id']; ?></td>
-								<td><?php echo $crow['type']; ?></td>
+							<tr class="text-center">
+								<!-- <td><a href="#"><?php echo $crow['id']; ?></a></td> -->
+								<td style="width:700px"><?php echo $crow['type']; ?></td>
 								<td><?php echo $crow['img']; ?></td>
 							
 							</tr>
