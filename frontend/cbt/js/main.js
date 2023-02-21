@@ -38,8 +38,8 @@ class _canvas{
     clear_screen(){
         this.ctx.fillStyle = 'white'
         this.ctx.fillRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
-        
-        
+   
+     
     }
 }
 
@@ -94,6 +94,16 @@ function drawclock(){
   lcd_screen.ctx.font = "60px Fantasy"
   lcd_screen.ctx.fillText('Score : '+score,10,80)
   lcd_screen.ctx.fillText('Image : '+img_count,CANVAS_WIDTH-300,80)
+  
+  let uid = localStorage.getItem('uid')
+  
+  if(!uid){
+    const dup =  new bootstrap.Modal(document.getElementById('dupliacteuse'))
+   
+    dup.show()
+     // window.location.replace('../index.php')
+  }
+  
 }
  
 let clock_time = setInterval(function () {clock_timer()}, 1000)
@@ -452,10 +462,13 @@ async function load(){
 }
 
   function recordcbt(){
+    clearInterval(clock)
+    clearInterval(clock_time)
+    let uid = localStorage.getItem('uid')
   $.post("../../api/cbt.php",
   {
     record : 1 ,
-    uid : 10005413,
+    uid : uid,
     img : img_count,
     timerec : timer,
     score : score
@@ -466,6 +479,7 @@ async function load(){
 
    if(data==1){
     document.getElementById('modalresbody').innerHTML = "Record completed"
+    localStorage.clear()
     resultModal.show()
     }
     else{

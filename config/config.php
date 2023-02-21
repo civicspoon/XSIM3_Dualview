@@ -1,7 +1,7 @@
 <?php 
     define("DBHOST","localhost");
     define("DBUSER","root");
-    define("DBPASS","");
+    define("DBPASS","aot#avsec");
     define("DBNAME","xsim2");
 
     function Utils($data){

@@ -1,7 +1,7 @@
 <?php
 
         
-    $mysqli = new mysqli("localhost","root","","xsim2");
+    $mysqli = new mysqli("localhost","root","aot#avsec","xsim2");
 
 if ($mysqli -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;

@@ -18,9 +18,9 @@
                 </li>
                 <?php 
                 if(isset($_SESSION['ROLE'])){
-                    if($_SESSION['ROLE']==1){
+                    if($_SESSION['ROLE']==1 || $_SESSION['ROLE']==2 || $_SESSION['ROLE']==3){
                     echo   '<li class="nav-item">
-                    <a class="nav-link" href="index.php?page_id=6"><i class="fa fa-book" aria-hidden="true" ></i> Admin</a>
+                    <a class="nav-link" href="index.php?page_id=6&admin_page=7"><i class="fa fa-book" aria-hidden="true" ></i> Admin</a>
                 </li>';
                 }}
                 ?>

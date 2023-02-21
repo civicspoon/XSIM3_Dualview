@@ -60,7 +60,7 @@
              '<p><strong>Item id : </strong>'.$type_id.'-'.
              $resarray[$i]['id'].''.
              '<p><strong> Item Name : </strong>'.$resarray[$i]['name'].'</p>'.
-             '<button class="btn btn-outline-light" onclick="showEdit()" ><center><img src="'.$resarray[$i]['img'].'" width="170px"></center></button>'.
+             '<a href="" onclick="showEdit()" ><center><img src="'.$resarray[$i]['img'].'" width="170px"></center></a>'.
              '<strong><u>X-Ray Images</u></strong>'.
              '<div class="row text-center">'.        
              '<div class="col-3">Side A</div>'.
@@ -108,67 +108,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-2">
-                        <div class="mb-3">
-                          <label for="" class="form-label">Item ID</label>
-                          <input type="text"
-                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="" readonly>
-                          
-                        </div>
-                    </div>
-                    
-                    <div class="col-4">
-                        <div class="mb-3">
-                          <label for="" class="form-label">Item Name</label>
-                          <input type="text"
-                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="Item name">
-                          
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <div class="mb-3">
-                          <label for="" class="form-label">Image</label>
-                          <input type="file"
-                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                          <small id="helpId" class="form-text text-muted">Item's Photo Image</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="row"><strong><h5>X-Ray images</h5></strong></div>
-                <hr>
-                <div class="row justify-content-between">
-                    <div class="col">
-                        <div class="mb-3">
-                          <label for="" class="form-label"><i class="fa fa-image" aria-hidden="true"></i> X-Ray Image 1</label>
-                          <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
-                          <div id="fileHelpId" class="form-text">Angle A-1</div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3">
-                          <label for="" class="form-label"><i class="fa fa-image" aria-hidden="true"></i> X-Ray Image 2</label>
-                          <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
-                          <div id="fileHelpId" class="form-text">Angle A-2</div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3">
-                          <label for="" class="form-label"><i class="fa fa-image" aria-hidden="true"></i> X-Ray Image 3</label>
-                          <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
-                          <div id="fileHelpId" class="form-text">Angle B-1</div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3">
-                          <label for="" class="form-label"><i class="fa fa-image" aria-hidden="true"></i> X-Ray Image 4</label>
-                          <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
-                          <div id="fileHelpId" class="form-text">Angle B-2</div>
-                        </div>
-                    </div>
-                </div>
-
-
+                Body
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -180,7 +120,10 @@
 
 
 <!-- Optional: Place to the bottom of scripts -->
+<script>
+    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
 
+</script>
 
 <!-- Edit Item Modal -->
 
@@ -191,18 +134,32 @@
 
 <!-- Modal Body -->
 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-
-
+<div class="modal fade" id="editmodal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Optional: Place to the bottom of scripts -->
 <script>
-       const editModal = new bootstrap.Modal(document.getElementById('newitemmodal'))
-
+   
 
   function showEdit(){
-    document.getElementById('modalTitleId').innerHTML = "<i class='fa fa-pencil' aria-hidden='true'></i> EDIT"
-    editModal.show()
+   
+        $("#editmodal").modal("show");
     }
 
 </script>

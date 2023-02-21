@@ -23,7 +23,7 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         
 
-                        <button type="button" class="btn btn-outline-primary btn-lg px-4">Start</button>
+                        <button type="button" onclick="goto_cbt()" class="btn btn-outline-primary btn-lg px-4">Start</button>
                     </div>
                 </div>
             </div>
@@ -32,4 +32,15 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+
+    <script> 
+    $('document').ready(function(){
+        localStorage.clear();
+    })
+        function goto_cbt(){
+            localStorage.setItem("uid","<?php echo $_SESSION['UID'] ?>")
+            
+            window.location.replace('cbt/cbt.html')
+        }
     </script>

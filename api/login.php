@@ -18,6 +18,7 @@ if($row!=0){
      $_SESSION['NAME'] = $name;
      $_SESSION['ROLE'] = $role;
     $login->insertToken($_POST['uid'],$token);
+    $login->update_login($_POST['uid']);
     echo $token;
 }else{
     echo 0;

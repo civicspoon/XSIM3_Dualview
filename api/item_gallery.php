@@ -12,43 +12,7 @@
 
     }
 
-    if(isset($_FILES['file']['name'])){
-
-
-     
-
-
-        /* Getting file name */
-        $filename = $_FILES['file']['name'];
-    
-        /* Location */
-        $location = $filename;
-        $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
-        $imageFileType = strtolower($imageFileType);
-    
-        /* Valid extensions */
-        $id = strtoupper(Utils($_POST['id']));
-        $itemname = Utils($_POST['itemname']);
-        $catid = Utils($_POST['catid']);
-    
-        $response = 0;
-    
-               /* Upload file */
-               if(move_uploaded_file($_FILES['file']['tmp_name'],'../src/typeimg/'.$filename)){
-                 
-               
-                 $stmt = $list->insert($id,$itemname,$catid,$filename);
-
-            
-                    
-                     echo "Success";
-                 //echo  $data;
-              }else{
-               
-                echo ($errors);
-              }  
-            }             
-    
-    
-
+    if(isset($_POST['insert'])){
+        
+    }
 ?>
