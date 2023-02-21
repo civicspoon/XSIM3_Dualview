@@ -85,13 +85,26 @@
         
        let uploadform = document.getElementById('xrayimgform')
        
-       uploadform.addEventListener('submit',(e)=>{
+       uploadform.addEventListener('submit',async (e)=>{
         e.preventDefault()
-
+            let catid = document.getElementById('category_list').value
+            let typeid = document.getElementById('type_list').value
             let fd = new FormData();
             let topview = document.getElementById('tv')
+            let sideview = document.getElementById('sv')
 
-            
+            fd.append('catid',catid)
+            fd.append('typeid',typeid)
+            fd.append('topview',topview.files[0])
+            fd.append('sideview',sideview.files[0])
+            const res = await fetch('../api/upload_xrayimg.php', {
+            method: "POST", 
+            body: fd
+            });    
+            let restxt = await res.text()
+            console.log(restxt)
+            alert(restxt);
+
        })
 
 
