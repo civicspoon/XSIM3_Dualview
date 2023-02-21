@@ -77,6 +77,7 @@
 
  <script>
     $('document').ready(async ()=>{
+
        $.get('../api/dropdownlist.php',{
         cat:1
        },(data)=>{
@@ -86,6 +87,7 @@
        let uploadform = document.getElementById('xrayimgform')
        
        uploadform.addEventListener('submit',async (e)=>{
+        
         e.preventDefault()
             let catid = document.getElementById('category_list').value
             let typeid = document.getElementById('type_list').value
@@ -103,7 +105,16 @@
             });    
             let restxt = await res.text()
             console.log(restxt)
-            alert(restxt);
+            if(restxt!="Success"){
+                document.getElementById('info').innerHTML = restxt
+                alertmodal.show()
+            }else{
+                document.getElementById('info').innerHTML = '<h1><i class="fa fa-check-circle text-success" aria-hidden="true"></i></h1><br> Success!'
+                 alert('Success')
+                 uploadform.reset()
+                
+              
+            }
 
        })
 
@@ -134,5 +145,35 @@ sv.onchange = evt => {
   }
 }
 
+
+ </script>
+
+<!-- Modal -->
+<div class="modal" id="alert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modaltitle"> <i class="fa fa-info-circle" aria-hidden="true"></i> Info</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <center id="info"></center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional: Place to the bottom of scripts -->
+<script>
+    const alertmodal = new bootstrap.Modal(document.getElementById('alert'))
+
+</script>
+
+ <script>
+    function showmodal(){
+        alertmodal.show()
+}
 
  </script>
