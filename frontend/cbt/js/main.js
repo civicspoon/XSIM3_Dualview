@@ -7,7 +7,7 @@ let imgB = []
 let i = 0
 let score = 0
 let img_count = 1
-let afk_time = 0
+let afk_timer = 0
 let afk_count = 0
  let x1 = new Image  
     x1.src = 'src/xsim_keyboard.png'
@@ -80,6 +80,7 @@ lcd_screen2.clear_screen()
 let timer = 0
 function clock_timer(){
     timer++
+    afk_timer++
     console.log(convertHMS(timer))
   //  alert(timer)    
   drawclock()

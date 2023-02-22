@@ -11,12 +11,14 @@ if($row!=0){
         $name =$row["name"];
         
         $role =$row["role_id"];
+        $depid =$row["department_id"];
       // $title = $row['title'];
     }
     session_start();
      $_SESSION['UID'] = $_POST['uid'];
      $_SESSION['NAME'] = $name;
      $_SESSION['ROLE'] = $role;
+     $_SESSION['DEPARTMENTID'] = $depid;
     $login->insertToken($_POST['uid'],$token);
     $login->update_login($_POST['uid']);
     echo $token;

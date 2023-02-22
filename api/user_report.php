@@ -1,4 +1,5 @@
 <?php 
+session_start();
     include_once '../class/user_report.php';
     $user_report = new User_report();
     if(isset($_GET['user_report'])){
@@ -16,6 +17,12 @@
             '<td>'.$row[5].'</td>'.
             '</tr>';
         }
+    }
+
+    if(isset($_GET['alluser'])){
+        $stmt = $user_report->admin_all_user($_SESSION['DEPARTMENTID']);
+       print_r($stmt);
+
     }
     
     function dateconvert($date){
