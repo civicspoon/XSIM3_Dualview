@@ -7,7 +7,9 @@ let imgB = []
 let i = 0
 let score = 0
 let img_count = 1
- let x1 = new Image 
+let afk_time = 0
+let afk_count = 0
+ let x1 = new Image  
     x1.src = 'src/xsim_keyboard.png'
     let S1 = new Image();
   //  S1.src= 'img/BAGGAGE_1-1.jpg'
@@ -383,7 +385,7 @@ function drawXray(screen,img){
         img_count++
         S1.src = imgA[i]
         S2.src = imgB[i]
-        if(i>=imgA.length){
+        if(i>=imgA.length || timer >= 1200){
           clearInterval(clock)
           clearInterval(clock_time)
         //  alert("End Session")
@@ -437,9 +439,9 @@ function preloadimg(data){
     for(let x in data){
       ansarray[x]=data[x].type
     // imgA[x] = new Image()
-      imgA[x] = 'img/'+data[x].side1
+      imgA[x] = '../../xrayimg/'+data[x].side1
    //   imgB[x] = new Image()
-      imgB[x] = 'img/'+data[x].side2
+      imgB[x] = '../../xrayimg/'+data[x].side2
     console.log(data[x].side1+" / "+data[x].side2)
     console.log(imgB[x].src+" "+ ansarray[x])
     }

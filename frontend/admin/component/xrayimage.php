@@ -29,13 +29,13 @@
                 
                     <div class="mb-3">
                         <label for="" class="form-label"><h4>Item Category</h4></label>
-                        <select onchange="list_type()" class="form-select form-select-lg" name="" id="category_list">
+                        <select onchange="list_type()" class="form-select form-select-lg" name="" id="category_list" required>
                             
                         </select>
                     </div> 
                     <div class="mt-3" id="div_type">
                         <label for="" class="form-label"><h4>Item Type</h4></label>
-                        <select class="form-select form-select-lg" name="" id="type_list" >
+                        <select class="form-select form-select-lg" name="" id="type_list"  required>
                         <option selected disabled>-- Select Item Type --</option>
                         </select>
                     </div>
@@ -46,7 +46,7 @@
                            <div class="row">
                                 <div class="mb-3">
                                   <label for="" class="form-label">Choose file</label>
-                                  <input type="file" class="form-control" name="" id="tv" placeholder="" aria-describedby="fileHelpId">
+                                  <input type="file" class="form-control" name="" id="tv" placeholder="" aria-describedby="fileHelpId" required>
                                  
                                   <div><img src="../src/xsim_logo.png" alt="" srcset="" id="topview" width="90%"></div>
                                 </div>
@@ -57,7 +57,7 @@
                             <div class="row">
                             <div class="mb-3">
                                   <label for="" class="form-label">Choose file</label>
-                                  <input type="file" class="form-control" name="" id="sv" placeholder="" aria-describedby="fileHelpId">
+                                  <input type="file" class="form-control" name="" id="sv" placeholder="" aria-describedby="fileHelpId" required>
                                   
                                   <div><img src="../src/xsim_logo.png" alt="" srcset="" id="sideview" width="90%"></div>
                                 </div>

@@ -3,7 +3,7 @@
 </div>
 
 <?php
-$conn= mysqli_connect("localhost","root","","xsim2") 
+$conn= mysqli_connect("localhost","root","aot#avsec","xsim2") 
 or die("Error: " . mysqli_error($conn));
 mysqli_query($conn, "SET NAMES 'utf8' ");
 //query
